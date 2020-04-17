@@ -1,12 +1,14 @@
-import Home from '../components/Home/Home';
 import Header from '../components/Header';
 import SignUp from '../components/SignUp';
 import Footer from '../components/Footer';
+import Links from '../components/InnerLinks/Links';
+import innerLinksData from '../data/innerLinksData.json';
+
+import { withRouter } from 'next/router'
+
 import Head from 'next/head';
 
-import HomeData from '../data/home.json';
-
-function HomeIndex(props) {
+function InnerLinks(props) {
     return (
         <div>
             <Head>
@@ -15,7 +17,7 @@ function HomeIndex(props) {
             </Head>
             <div className="wrapper">
                 <Header />
-                <Home homePageObj={props.homeObj}/>
+                <Links linkObj={props.innerLinkObj} linking={props.router.query.name}/>
                 <SignUp />
                 <Footer />
             </div>
@@ -23,13 +25,15 @@ function HomeIndex(props) {
     )
 }
 
-export async function getStaticProps({}) {
-    let homeObj = HomeData;
+
+export async function getStaticProps({props}) {
+    let innerLinkObj = innerLinksData;
+   
     return {
         props: {
-            homeObj,
+            innerLinkObj   
         },
     }
 }
 
-export default HomeIndex;
+export default withRouter(InnerLinks);

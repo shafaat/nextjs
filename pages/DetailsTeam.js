@@ -1,13 +1,13 @@
-import Home from '../components/Home/Home';
+import DetailTeam from '../components/Teams/DetailTeam/DetailTeam';
 import Header from '../components/Header';
+import TeamsFooter from '../components/Teams/TeamsFooter';
 import SignUp from '../components/SignUp';
 import Footer from '../components/Footer';
+
 import Head from 'next/head';
 
-import HomeData from '../data/home.json';
-
-function HomeIndex(props) {
-    return (
+function DetailTeams(props) {
+    return(
         <div>
             <Head>
                 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet" /> 
@@ -15,7 +15,8 @@ function HomeIndex(props) {
             </Head>
             <div className="wrapper">
                 <Header />
-                <Home homePageObj={props.homeObj}/>
+                <DetailTeam detailTeamObj={props}/>
+                <TeamsFooter />
                 <SignUp />
                 <Footer />
             </div>
@@ -23,13 +24,4 @@ function HomeIndex(props) {
     )
 }
 
-export async function getStaticProps({}) {
-    let homeObj = HomeData;
-    return {
-        props: {
-            homeObj,
-        },
-    }
-}
-
-export default HomeIndex;
+export default DetailTeams;

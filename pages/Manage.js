@@ -1,12 +1,13 @@
-import Home from '../components/Home/Home';
 import Header from '../components/Header';
+import Manage from '../components/Manage/Manage';
 import SignUp from '../components/SignUp';
 import Footer from '../components/Footer';
+
+import manageData from '../data/manage.json';
+
 import Head from 'next/head';
 
-import HomeData from '../data/home.json';
-
-function HomeIndex(props) {
+function Manages(props) {
     return (
         <div>
             <Head>
@@ -15,21 +16,22 @@ function HomeIndex(props) {
             </Head>
             <div className="wrapper">
                 <Header />
-                <Home homePageObj={props.homeObj}/>
+                <Manage managesObj={props.manageObj}/>
                 <SignUp />
-                <Footer />
+                <Footer />           
             </div>
         </div>
     )
 }
-
+  
 export async function getStaticProps({}) {
-    let homeObj = HomeData;
+    let manageObj = manageData;
     return {
         props: {
-            homeObj,
+            manageObj,
         },
     }
 }
 
-export default HomeIndex;
+
+export default Manages;

@@ -1,12 +1,12 @@
-import Home from '../components/Home/Home';
 import Header from '../components/Header';
+import Links from '../components/InnerLinks/Links';
 import SignUp from '../components/SignUp';
 import Footer from '../components/Footer';
+import innerLinksData from '../data/innerLinksData.json';
+
 import Head from 'next/head';
 
-import HomeData from '../data/home.json';
-
-function HomeIndex(props) {
+function BusinessInsights(props) {
     return (
         <div>
             <Head>
@@ -14,22 +14,25 @@ function HomeIndex(props) {
                 <link href="/static/style.css" rel="stylesheet" />
             </Head>
             <div className="wrapper">
-                <Header />
-                <Home homePageObj={props.homeObj}/>
-                <SignUp />
-                <Footer />
+                <div>
+                    <Header />
+                    <Links innerObj={props.onlineObj}/>
+                    <SignUp />
+                    <Footer />
+                </div>
             </div>
         </div>
     )
 }
-
+  
 export async function getStaticProps({}) {
-    let homeObj = HomeData;
+    let onlineObj = innerLinksData.businessInsights;
     return {
         props: {
-            homeObj,
+            onlineObj,
         },
     }
 }
 
-export default HomeIndex;
+
+export default BusinessInsights;

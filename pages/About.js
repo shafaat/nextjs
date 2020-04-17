@@ -1,12 +1,13 @@
-import Home from '../components/Home/Home';
+import About from '../components/AboutUs/About';
 import Header from '../components/Header';
 import SignUp from '../components/SignUp';
 import Footer from '../components/Footer';
+
 import Head from 'next/head';
 
-import HomeData from '../data/home.json';
+import aboutUs from '../data/aboutus.json';
 
-function HomeIndex(props) {
+function AboutUs(props) {
     return (
         <div>
             <Head>
@@ -15,7 +16,7 @@ function HomeIndex(props) {
             </Head>
             <div className="wrapper">
                 <Header />
-                <Home homePageObj={props.homeObj}/>
+                <About aboutProp={props.aboutUsData}/>
                 <SignUp />
                 <Footer />
             </div>
@@ -24,12 +25,12 @@ function HomeIndex(props) {
 }
 
 export async function getStaticProps({}) {
-    let homeObj = HomeData;
+    let aboutUsData = aboutUs;
     return {
         props: {
-            homeObj,
+            aboutUsData,
         },
     }
 }
 
-export default HomeIndex;
+export default AboutUs;

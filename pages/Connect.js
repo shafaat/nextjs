@@ -1,13 +1,14 @@
-import Home from '../components/Home/Home';
 import Header from '../components/Header';
 import SignUp from '../components/SignUp';
 import Footer from '../components/Footer';
+import Connects from '../components/Connects/Connects';
+
+import connectData from '../data/connect.json';
+
 import Head from 'next/head';
 
-import HomeData from '../data/home.json';
-
-function HomeIndex(props) {
-    return (
+function Connect(props) {
+    return(
         <div>
             <Head>
                 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet" /> 
@@ -15,7 +16,7 @@ function HomeIndex(props) {
             </Head>
             <div className="wrapper">
                 <Header />
-                <Home homePageObj={props.homeObj}/>
+                <Connects connectsObj={props.connectObj}/>
                 <SignUp />
                 <Footer />
             </div>
@@ -24,12 +25,12 @@ function HomeIndex(props) {
 }
 
 export async function getStaticProps({}) {
-    let homeObj = HomeData;
+    let connectObj = connectData;
     return {
         props: {
-            homeObj,
+            connectObj,
         },
     }
 }
 
-export default HomeIndex;
+export default Connect;

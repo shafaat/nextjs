@@ -1,12 +1,12 @@
-import Home from '../components/Home/Home';
 import Header from '../components/Header';
 import SignUp from '../components/SignUp';
 import Footer from '../components/Footer';
+import LearningCards from '../components/LearningCards';
+
+
 import Head from 'next/head';
 
-import HomeData from '../data/home.json';
-
-function HomeIndex(props) {
+function Learn() {
     return (
         <div>
             <Head>
@@ -15,7 +15,7 @@ function HomeIndex(props) {
             </Head>
             <div className="wrapper">
                 <Header />
-                <Home homePageObj={props.homeObj}/>
+                <LearningCards />
                 <SignUp />
                 <Footer />
             </div>
@@ -23,13 +23,6 @@ function HomeIndex(props) {
     )
 }
 
-export async function getStaticProps({}) {
-    let homeObj = HomeData;
-    return {
-        props: {
-            homeObj,
-        },
-    }
-}
 
-export default HomeIndex;
+  
+export default Learn;
