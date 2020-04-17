@@ -4,7 +4,7 @@ const Home = () => (
   <div className="container">
     <Head>
       <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="https://mdmedicine.com/wp-content/uploads/2019/06/logo-MD.png" />
     </Head>
 
     <main>
